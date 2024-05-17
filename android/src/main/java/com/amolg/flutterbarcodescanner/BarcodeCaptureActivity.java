@@ -44,6 +44,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.widget.TextView;
 
 
 import com.amolg.flutterbarcodescanner.camera.CameraSource;
@@ -84,6 +85,7 @@ public final class BarcodeCaptureActivity extends AppCompatActivity implements B
 
     private ImageView imgViewBarcodeCaptureUseFlash;
     private ImageView imgViewSwitchCamera;
+    private TextView hasilBarcode;
 
     public static int SCAN_MODE = SCAN_MODE_ENUM.QR.ordinal();
 
@@ -127,6 +129,9 @@ public final class BarcodeCaptureActivity extends AppCompatActivity implements B
 
         imgViewSwitchCamera = findViewById(R.id.imgViewSwitchCamera);
         imgViewSwitchCamera.setOnClickListener(this);
+
+        hasilBarcode = findViewById(R.id.resultHasil); 
+        hasilBarcode.setText("Hasil setText Barcode");
 
         mPreview = findViewById(R.id.preview);
         mGraphicOverlay = findViewById(R.id.graphicOverlay);
@@ -528,8 +533,9 @@ public final class BarcodeCaptureActivity extends AppCompatActivity implements B
             } else {
                 Intent data = new Intent();
                 data.putExtra(BarcodeObject, barcode);
+                 hasilBarcode.setText(barcode.rawValue);
                 setResult(CommonStatusCodes.SUCCESS, data);
-                finish();
+              //  finish();
             }
         }
     }
