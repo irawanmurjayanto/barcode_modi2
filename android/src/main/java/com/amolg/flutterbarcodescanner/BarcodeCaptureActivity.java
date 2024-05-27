@@ -86,6 +86,9 @@ public final class BarcodeCaptureActivity extends AppCompatActivity implements B
     private ImageView imgViewBarcodeCaptureUseFlash;
     private ImageView imgViewSwitchCamera;
     private TextView hasilBarcode;
+    private TextView hasilBarcode2;
+    private TextView header1;
+    private TextView header2;
 
     public static int SCAN_MODE = SCAN_MODE_ENUM.QR.ordinal();
 
@@ -130,8 +133,15 @@ public final class BarcodeCaptureActivity extends AppCompatActivity implements B
         imgViewSwitchCamera = findViewById(R.id.imgViewSwitchCamera);
         imgViewSwitchCamera.setOnClickListener(this);
 
+        header1 = findViewById(R.id.header1); 
+        header2 = findViewById(R.id.header2);  
+        header1.setText(FlutterBarcodeScannerPlugin.companyName); 
+        header2.setText(FlutterBarcodeScannerPlugin.dateData);
+
         hasilBarcode = findViewById(R.id.resultHasil); 
-        hasilBarcode.setText("Hasil setText Barcode");
+        hasilBarcode2 = findViewById(R.id.hasilBarcode); 
+        hasilBarcode.setText("Last Barcode/Num. Of Barcode");
+        hasilBarcode2.setText(FlutterBarcodeScannerPlugin.dataBarcode+" - "+FlutterBarcodeScannerPlugin.dataFlutter);
 
         mPreview = findViewById(R.id.preview);
         mGraphicOverlay = findViewById(R.id.graphicOverlay);
@@ -405,11 +415,13 @@ public final class BarcodeCaptureActivity extends AppCompatActivity implements B
             try {
                 if (flashStatus == USE_FLASH.OFF.ordinal()) {
                     flashStatus = USE_FLASH.ON.ordinal();
-                    imgViewBarcodeCaptureUseFlash.setImageResource(R.drawable.ic_barcode_flash_on);
+                  //  imgViewBarcodeCaptureUseFlash.setImageResource(R.drawable.ic_barcode_flash_on);
+                    imgViewBarcodeCaptureUseFlash.setImageResource(R.drawable.flashon);
                     turnOnOffFlashLight(true);
                 } else {
                     flashStatus = USE_FLASH.OFF.ordinal();
-                    imgViewBarcodeCaptureUseFlash.setImageResource(R.drawable.ic_barcode_flash_off);
+                    //imgViewBarcodeCaptureUseFlash.setImageResource(R.drawable.ic_barcode_flash_off);
+                    imgViewBarcodeCaptureUseFlash.setImageResource(R.drawable.flashoff);
                     turnOnOffFlashLight(false);
                 }
             } catch (Exception e) {
@@ -533,9 +545,16 @@ public final class BarcodeCaptureActivity extends AppCompatActivity implements B
             } else {
                 Intent data = new Intent();
                 data.putExtra(BarcodeObject, barcode);
-                 hasilBarcode.setText(barcode.rawValue);
+                //tambhana may/17/24
+                //int jum=Integer.valueOf(FlutterBarcodeScannerPlugin.dataFlutter);
+                //jum++;
+                // hasilBarcode2.setText(barcode.rawValue+"/ "+String.valueOf(jum));
                 setResult(CommonStatusCodes.SUCCESS, data);
-              //  finish();
+                 finish();
+                         //tambhana may/17/24
+                // int jum=Integer.valueOf(FlutterBarcodeScannerPlugin.dataFlutter);
+                // jum++;
+                // hasilBarcode2.setText(barcode.rawValue+"/ "+String.valueOf(jum));
             }
         }
     }
