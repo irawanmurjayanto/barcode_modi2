@@ -46,6 +46,10 @@ public class FlutterBarcodeScannerPlugin implements MethodCallHandler, ActivityR
     private static final String TAG = FlutterBarcodeScannerPlugin.class.getSimpleName();
     private static final int RC_BARCODE_CAPTURE = 9001;
     public static String lineColor = "";
+    public static String dataFlutter = "";
+    public static String dataBarcode = "";
+    public static String companyName = "";
+    public static String dateData = "";
     public static boolean isShowFlashIcon = false;
     public static boolean isContinuousScan = false;
     static EventChannel.EventSink barcodeStream;
@@ -92,6 +96,30 @@ public class FlutterBarcodeScannerPlugin implements MethodCallHandler, ActivityR
     public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {
         try {
             pendingResult = result;
+
+            //tambahan ambil data  
+           if (call.method.equals("ambilHasil")) {
+                if (!(call.arguments instanceof Map)) {
+                    throw new IllegalArgumentException("Plugin not passing a map as parameter: " + call.arguments);
+                }
+
+                arguments = (Map<String, Object>) call.arguments;
+                dataFlutter=(String) arguments.get("dataFlutter");//jumlah
+                dataBarcode=(String) arguments.get("dataBarcode");//data barcode
+       
+           }
+
+              if (call.method.equals("dataHeader")) {
+                if (!(call.arguments instanceof Map)) {
+                    throw new IllegalArgumentException("Plugin not passing a map as parameter: " + call.arguments);
+                }
+
+                arguments = (Map<String, Object>) call.arguments;
+                companyName=(String) arguments.get("companyName");//jumlah
+                dateData=(String) arguments.get("dateData");//data barcode
+       
+           }
+
 
             if (call.method.equals("scanBarcode")) {
                 if (!(call.arguments instanceof Map)) {
