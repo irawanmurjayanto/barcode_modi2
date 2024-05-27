@@ -32,7 +32,7 @@
 
          <TextView     
             android:gravity="center"
-            android:id="@+id/tatas1"
+            android:id="@+id/header1"
             android:text="PT. Paradise Island 2024-10"
             android:textColor="@android:color/black"
             android:textSize="20dp"
@@ -41,16 +41,17 @@
 
               <TextView     
             android:gravity="center"
-            android:id="@+id/tatas2"
+            android:id="@+id/header2"
             android:text="Bawah 2024"
             android:textColor="@android:color/black"
-            android:textSize="20dp"
+            android:textSize="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
 </LinearLayout>
 
-  <RelativeLayout
+  <LinearLayout
+        android:orientation="vertical"
         android:layout_above="@+id/layoutBottom"
         android:id="@+id/layoutHasil"
         android:layout_width="match_parent"
@@ -59,15 +60,29 @@
 
           
         <TextView     
+            android:padding="3dp"
             android:gravity="center"
             android:id="@+id/resultHasil"
-            android:text="Hasil Barcode"
-            android:textColor="@android:color/black"
-            android:textSize="20dp"
+            android:text="Last Barcode/Num. Of Barcode"
+            android:textColor="@android:color/white"
+            android:textSize="12dp"
+            android:background="@android:color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-   </RelativeLayout>        
+            <TextView    
+           
+            android:gravity="center"
+            android:id="@+id/hasilBarcode"
+            android:text="x"
+            android:textColor="@android:color/black"
+            android:textSize="20dp"
+            android:background="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+   </LinearLayout>        
 
     <RelativeLayout
         android:id="@+id/layoutBottom"
@@ -92,10 +107,10 @@
         <ImageView
             android:id="@+id/imgViewBarcodeCaptureUseFlash"
             android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_height="40dp"
             android:layout_centerInParent="true"
             android:contentDescription="Flash button"
-            android:src="@drawable/ic_barcode_flash_off" />
+            android:src="@drawable/flashon" />
 
         <Button
             android:id="@+id/btnBarcodeCaptureCancel"
