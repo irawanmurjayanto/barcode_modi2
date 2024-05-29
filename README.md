@@ -1,3 +1,9 @@
+This Project Based on https://github.com/AmolGangadhare/   in flutter_scanner_barcode section
+But I need this for revised the Layout for my need, the changes of layout to be :
+
+
+
+
 # flutter_barcode_scanner
 
 A plugin for Flutter apps that adds barcode scanning support on both Android and iOS.
