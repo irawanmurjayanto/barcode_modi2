@@ -3,7 +3,7 @@ But I need this for revised the Layout for my need in my project scanner flutter
 
 ![alt text](https://github.com/irawanmurjayanto/barcode_modi2/blob/master/pictme/pict1_rev.gif?raw=true)
 
-I changed the layout for capturing the Last Barcode captured and number of all barcode data in certain scanning time.
+I changed the layout for capturing the Last Barcode captured and number of barcode data in certain scanning group
 This Plugin only test in android
 
 The Original Plugin In below: 
