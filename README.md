@@ -6,6 +6,8 @@ But I need this for revised the Layout for my need in my project scanner flutter
 I changed the layout for capturing the Last Barcode captured and number of all barcode data in certain scanning time.
 This Plugin only test in android
 
+The Original Plugin In below: 
+
 
 # flutter_barcode_scanner
 
