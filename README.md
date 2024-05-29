@@ -3,6 +3,8 @@ But I need this for revised the Layout for my need for my project scanner, the c
 
 ![alt text](https://github.com/irawanmurjayanto/barcode_modi2/blob/master/pictme/pict1_rev.gif?raw=true)
 
+I changed the layout for capturing the Last Barcode captured and number of all barcode data in certain scanning time
+
 
 # flutter_barcode_scanner
 
