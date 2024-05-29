@@ -1,5 +1,5 @@
 This Project Based on https://github.com/AmolGangadhare/   in flutter_scanner_barcode section
-But I need this for revised the Layout for my need for my project scanner, the changes of layout to be :
+But I need this for revised the Layout for my need for my project scanner flutter, the changes of layout to be (just small cahnges) :
 
 ![alt text](https://github.com/irawanmurjayanto/barcode_modi2/blob/master/pictme/pict1_rev.gif?raw=true)
 
