@@ -4,7 +4,94 @@ But I need this for revised the Layout for my need in my project scanner flutter
 ![alt text](https://github.com/irawanmurjayanto/barcode_modi2/blob/master/pictme/pict1_rev.gif?raw=true)
 
 I changed the layout for capturing the Last Barcode captured and number of barcode data in certain scanning group
-This Plugin only test in android
+This Plugin only test in android.
+
+Usage :
+
+ Future<void> dataHeader(String company,String tgl) async {
+    String barcodeScanRes;
+      try {
+      barcodeScanRes = await FlutterBarcodeScanner.dataHeader(
+           company,tgl);
+      print(barcodeScanRes);
+    } on PlatformException {
+      barcodeScanRes = 'Failed to get platform version.';
+    }
+
+   
+  }
+
+
+  Future<void> ambilHasil(String jumlah,String barcode) async {
+    String barcodeScanRes;
+      try {
+      barcodeScanRes = await FlutterBarcodeScanner.ambilHasil(
+           jumlah,barcode);
+      print(barcodeScanRes);
+    } on PlatformException {
+      barcodeScanRes = 'Failed to get platform version.';
+    }
+    if (!mounted) return;
+    setState(() {
+      _scanBarcode = barcodeScanRes;
+      _jumlah++;
+    });
+  }
+
+  Future<void> scanQR() async {
+    String barcodeScanRes;
+      try {
+       
+      barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
+          "#ff0000", "Cancel", true, ScanMode.QR);
+      print(barcodeScanRes);
+    } on PlatformException {
+      barcodeScanRes = 'Failed to get platform version.';
+    }
+
+   
+    if (!mounted) return;
+    setState(() {
+      _scanBarcode = barcodeScanRes;
+         _jumlah++;
+    });
+  }
+//codenya sama dengan yang diatas, pembedanya di bagian ScanMode
+  Future<void> scanBarcodeNormal() async {
+    String barcodeScanRes;
+        try {
+      barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
+          "#ff0000", "Cancel", true, ScanMode.BARCODE);
+      print(barcodeScanRes);
+    } on PlatformException {
+      barcodeScanRes = 'Failed to get platform version.';
+    }
+    if (!mounted) return;
+    
+    if (barcodeScanRes.isNotEmpty )
+    {
+
+      if (barcodeScanRes!='-1')
+       {
+    Future.delayed(Duration(milliseconds: 500),(){
+        ambilHasil(_jumlah.toString(),_scanBarcode);
+      scanBarcodeNormal();
+         });
+
+       //dataHeader
+      
+
+
+       setState(() {
+      _scanBarcode = barcodeScanRes;
+      _jumlah++;
+    });
+
+       }
+    }
+    
+   
+  }
 
 The Original Plugin In below: 
 
