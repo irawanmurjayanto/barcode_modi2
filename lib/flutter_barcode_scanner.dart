@@ -23,6 +23,49 @@ class FlutterBarcodeScanner {
   /// Shows a scan line with [lineColor] over a scan window. A flash icon is
   /// displayed if [isShowFlashIcon] is true. The text of the cancel button can
   /// be customized with the [cancelButtonText] string.
+
+
+
+  //Tambahan May.17/24
+
+ static Future<String> dataHeader(String companyName,String dateData) async {
+    if (companyName.isEmpty) {
+      companyName= '';
+    } 
+   
+
+    Map params = <String, dynamic>{
+      'companyName': companyName,
+      'dateData': dateData,
+
+    };
+
+
+       final barcodeResult2 =
+        await _channel.invokeMethod('dataHeader', params) ?? '';
+      return barcodeResult2;
+
+ }
+
+   static Future<String> ambilHasil(String dataFlutter,String dataBarcode) async {
+    if (dataFlutter.isEmpty) {
+      dataFlutter= 'Cancel';
+    } 
+   
+
+    Map params = <String, dynamic>{
+      'dataFlutter': dataFlutter,
+      'dataBarcode': dataBarcode,
+
+    };
+
+      final barcodeResult2 =
+        await _channel.invokeMethod('ambilHasil', params) ?? '';
+      return barcodeResult2;
+
+   }
+
+  
   static Future<String> scanBarcode(String lineColor, String cancelButtonText,
       bool isShowFlashIcon, ScanMode scanMode) async {
     if (cancelButtonText.isEmpty) {
