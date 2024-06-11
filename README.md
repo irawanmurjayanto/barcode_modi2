@@ -57,6 +57,8 @@ Usage :
     });
   }
 //codenya sama dengan yang diatas, pembedanya di bagian ScanMode
+
+
   Future<void> scanBarcodeNormal() async {
     String barcodeScanRes;
         try {
